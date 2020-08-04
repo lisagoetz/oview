@@ -1,0 +1,162 @@
+* {
+    font-family: sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 20%;
+    background-color: rgb(2, 21, 38);
+    float: left;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 50px 0px;
+}
+
+nav li {
+    border-bottom: 0.01em solid rgba(255, 255, 255, 0.2);
+}
+
+nav li a{
+    display: block;
+    color: white;
+    padding: 20px 30px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.wrapper {
+    min-height: 100vh;
+    width: 80%;
+    float: left;
+}
+
+header {
+    padding: 0px 30px;
+    height: 65px;
+    border-bottom: 0.01em solid rgb(2, 21, 38);
+}
+
+.column {
+    width: 50%;
+    float: left;
+}
+
+.btns {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+.btn {
+    background-color: rgb(2, 21, 38);
+    border: none;
+    text-align: center;
+    color: white;
+    border-radius: 30px;
+    display: block;
+    text-decoration: none;
+    margin: 0px 10px 0px 0px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+main {
+    padding: 10%;
+    height: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    border: none;
+    box-shadow: 0px 0px 5px #ddd;
+}
+
+th, td {
+    padding: 1em 2em;
+    font-size: .75em;
+    text-align: left;
+}
+
+td {
+    border-bottom: 0.01em solid #ddd;
+}
+
+td:last-child {
+    width: 150px;
+}
+
+fieldset {
+    border: none;
+    box-shadow: 0px 0px 5px #ddd;
+    padding: 40px;
+}
+
+fieldset ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+fieldset ul li {
+    height: 2em;
+    padding: 5px 0px;
+    clear: both;
+}
+
+label {
+    width: 10em;
+    float: left;
+}
+
+input {
+    width: 20em;
+    height: 2em;
+    border: none;
+    border-bottom: 0.01em solid rgb(2, 21, 38);
+}
+
+.submit-btn {
+    width: 7em;
+    height: 3em;
+    margin-top: 20px;
+}
+
+.back-btn {
+    width: 1em;
+    height: 19px;
+    margin: 13px 10px 13px 0px;
+    float: left;
+}
+
+.alert {
+    height: 20px;
+    width: 500px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.alert-success{
+    background-color: rgba(9,99,179,0.2);
+    color: rgb(9,99,179);
+}
+
+.alert-danger{
+    background-color: rgba(215,70,82,0.2);
+    color: rgb(215,70,82);
+}
+
+.btn-row {
+    width: 10px;
+    float: left;
+    margin: 2px 2px 2px 0px;
+}
