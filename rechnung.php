@@ -18,7 +18,7 @@
         include "connect.inc.php";
 
         //Tabelle abrufen
-        $sql = "SELECT rechnung.RNR, kunde.Firma, kunde.Vorname, kunde.Nachname 
+        $sql = "SELECT rechnung.RNR, rechnung.Datum, kunde.Firma, kunde.Vorname, kunde.Nachname 
                 FROM rechnung, kunde
                 WHERE rechnung.KNR = kunde.KNR";
         $res_rechnung = $pdo -> query($sql);

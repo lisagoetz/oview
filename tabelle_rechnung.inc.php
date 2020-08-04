@@ -12,7 +12,7 @@ function rechnung_tabelle($res_rechnung)
         echo "<div class='alert alert-success'>Rechnung wurde gelöscht.</div>";
     }
 
-    $query = "SELECT rechnung.rnr, kunde.firma, kunde.vorname, kunde.nachname
+    $query = "SELECT rechnung.rnr, rechnung.datum, kunde.firma, kunde.vorname, kunde.nachname
                 FROM rechnung, kunde
                 WHERE rechnung.knr = kunde.nr
                 ORDER BY rechnung.rnr";
@@ -27,6 +27,7 @@ function rechnung_tabelle($res_rechnung)
         //Kopfzeile
         echo "<tr>";
         echo "<th>RNR</th>";
+        echo "<th>Datum</th>";
         echo "<th>Firma</th>";
         echo "<th>Ansprechpartner</th>";
         echo "<th>Betrag</th>";
@@ -40,6 +41,7 @@ function rechnung_tabelle($res_rechnung)
             // Neues Feld pro Eintrag
             echo "<tr>";
             echo "<td>{$rnr}</td>";
+            echo "<td>{$datum}</td>";
             echo "<td>{$firma}</td>";
             echo "<td>{$vorname} {$nachname}</td>";
             echo "<td>{}</td>";

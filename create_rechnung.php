@@ -21,30 +21,66 @@ include "navigation.php";
         </div>
     </header>
     <main>
-        <div class="rechnung">
-            <form action="" method="post" onsubmit="">
-                <fieldset>
-                    <select name="kunde" id="kunde">
-                        <option>Kunden eingeben</option>
-                        <?php
-                        include "connect.inc.php";
-                        $query = "SELECT firma FROM kunde";
-                        $statement = $pdo->prepare($query);
-                        $statement->execute();
+        <?php
+        include 'connect.inc.php';
 
-                        $row = $statement->fetchAll(PDO::FETCH_COLUMN);
+        if (isset($_POST['submit']))
+        {
+            $knr = $_POST['knr'];
 
-                        foreach ($row as $adressat){
-                            echo "<option value='$adressat'>$adressat</option>";
-                        }
-                        ?>
-                    </select>
-                </fieldset>
-            </form>
-            <div>
-                Hallo
-            </div>
-        </div>
+            $query = "INSERT INTO rechnung (knr)
+	                        VALUES ('$knr')";
+
+            $statement = $pdo->prepare($query);
+            if($statement->execute()) {
+                echo "<div class='alert alert-success'>Rechnung erstellt.</div>";
+            } else {
+                echo "<div class='alert alert-danger'>Rechnung konnte nicht erstellt werden.</div>";
+            }
+
+            $pdo = null;
+        }
+        ?>
+        <form action="create_rechnung.php" method="post">
+            <fieldset>
+                <ul>
+                    <li>
+                        <label for="kunde">Kunde</label>
+                        <select name="kunde" id="kunde">
+                            <option>Kunden eingeben</option>
+                            <?php
+                            include "connect.inc.php";
+                            $query = "SELECT knr, firma FROM kunde";
+                            $statement = $pdo->prepare($query);
+                            $statement->execute();
+
+                            $row = $statement->fetchAll(PDO::FETCH_COLUMN);
+
+                            foreach ($row as $adressat){
+                                echo "<option value='".$adressat['knr']."'>'".$adressat['firma']."'</option>";
+                            }
+                            ?>
+                        </select>
+                        <select name="kunde" id="kunde">
+                            <option>Kunden eingeben</option>
+                            <?php
+                            include "connect.inc.php";
+                            $query = "SELECT firma FROM kunde";
+                            $statement = $pdo->prepare($query);
+                            $statement->execute();
+
+                            $row = $statement->fetchAll(PDO::FETCH_COLUMN);
+
+                            foreach ($row as $adressat){
+                                echo "<option value=$adressat>$adressat</option>";
+                            }
+                            ?>
+                        </select>
+                    </li>
+                    <input type="submit" name="submit" value="submit" class="btn submit-btn">
+                </ul>
+            </fieldset>
+        </form>
     </main>
 </div>
 </body>
